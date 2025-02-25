@@ -11,10 +11,7 @@ const GameInput = ({ onSubmit, disabled, value, onChange, }: Props) => {
   return (
     <form
       className="flex items-end"
-      onSubmit={(e) => {
-        e.preventDefault();
-        onSubmit(e);
-      }}
+      onSubmit={onSubmit}
     >
       <label htmlFor="game-input">
         Enter some letters
