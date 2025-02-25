@@ -1,10 +1,19 @@
-const GameInput = ({ onSubmit, disabled, ...props }) => {
+import { ChangeEvent, FormEvent } from 'react';
+
+interface Props {
+  onSubmit: (param: FormEvent<HTMLFormElement>) => void;
+  disabled: boolean;
+  value: string;
+  onChange: (param: ChangeEvent<HTMLInputElement>) => void;
+}
+
+const GameInput = ({ onSubmit, disabled, value, onChange, }: Props) => {
   return (
     <form
       className="flex items-end"
       onSubmit={(e) => {
         e.preventDefault();
-        if (onSubmit) onSubmit(e);
+        onSubmit(e);
       }}
     >
       <label htmlFor="game-input">
@@ -16,7 +25,8 @@ const GameInput = ({ onSubmit, disabled, ...props }) => {
           pattern="[a-f|A-F|0-9]{6}"
           placeholder="C0FF33"
           disabled={disabled}
-          {...props}
+          value={value}
+          onChange={onChange}
         />
       </label>
       <button className="whitespace-nowrap" type="submit" disabled={disabled}>
