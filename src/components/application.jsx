@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import generateRandomColor from '../lib/generate-random-color';
 import ColorSwatch from './color-swatch';
 import ExpensiveComponent from './expensive-component';
@@ -11,11 +11,13 @@ const Application = () => {
   const [hasGuessed, setHasGuessed] = useState(false);
   const [isWinner, setIsWinner] = useState(false);
 
-  if (hasGuessed) {
-    if (correctAnswer === colorGuess) {
-      setIsWinner(true);
+  useEffect(() => {
+    if (hasGuessed) {
+      if (correctAnswer === colorGuess) {
+        setIsWinner(true);
+      }
     }
-  }
+  }, [hasGuessed]);
 
   return (
     <main className="flex flex-col gap-8 mx-auto my-8 w-96">
