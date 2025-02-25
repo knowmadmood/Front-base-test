@@ -1,8 +1,11 @@
-const ColorSwatch = ({ color, ...props }) => {
+interface Props {
+  color: string;
+}
+
+const ColorSwatch = ({ color }: Props) => {
   return (
     <div
       className="h-96 w-96"
-      {...props}
       style={{ backgroundColor: '#' + color }}
     />
   );
