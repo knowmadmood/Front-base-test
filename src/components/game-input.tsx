@@ -16,6 +16,7 @@ const GameInput = ({ onSubmit, disabled, value, onChange, }: Props) => {
       <label htmlFor="game-input">
         Enter some letters
         <input
+          data-testid='color-input'
           id="game-input"
           type="text"
           maxLength={6}
@@ -26,7 +27,7 @@ const GameInput = ({ onSubmit, disabled, value, onChange, }: Props) => {
           onChange={onChange}
         />
       </label>
-      <button className="whitespace-nowrap" type="submit" disabled={disabled}>
+      <button className="whitespace-nowrap" type="submit" disabled={disabled} data-testid='submit-button'>
         Take a Guess
       </button>
     </form>

@@ -13,7 +13,7 @@ const Application = () => {
 
   useEffect(() => {
     if (hasGuessed) {
-      if (correctAnswer === colorGuess) {
+      if (correctAnswer.toUpperCase() === colorGuess.toUpperCase()) {
         setIsWinner(true);
       }
     }
